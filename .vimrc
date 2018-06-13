@@ -35,7 +35,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
 Plugin 'jiangmiao/auto-pairs'
 " Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/xoria256.vim'
 " Plugin 'octol/vim-cpp-enhanced-highlight'
 " All of your Plugins must be added before the following line
@@ -62,7 +62,7 @@ set ignorecase smartcase
 set laststatus=2
 set t_Co=256
 set diffopt+=vertical
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 colo xoria256
 set background=dark
 syntax on
