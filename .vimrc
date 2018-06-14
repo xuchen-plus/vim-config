@@ -20,6 +20,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_auto_start_csharp_server = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_server_python_interpreter='/usr/bin/python'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
@@ -37,6 +38,7 @@ Plugin 'jiangmiao/auto-pairs'
 " Plugin 'tpope/vim-fugitive'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/xoria256.vim'
+Plugin 'majutsushi/tagbar'
 " Plugin 'octol/vim-cpp-enhanced-highlight'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -117,3 +119,4 @@ nmap <left> :bp!<CR>
 nmap <right> :bn!<CR>
 nmap <up> :bf!<CR>
 nmap <down> :bl!<CR>
+nmap <F8> :TagbarToggle<CR>
