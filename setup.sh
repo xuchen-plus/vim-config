@@ -15,6 +15,3 @@ mkdir regex_build
 cd regex_build
 cmake ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/cregex
 cmake --build . --target _regex --config Release
-cd $cwd
-mkdir -p ~/.vim/plugin
-cp mark.vim ~/.vim/plugin

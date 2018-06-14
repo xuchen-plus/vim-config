@@ -39,6 +39,13 @@ Plugin 'jiangmiao/auto-pairs'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/xoria256.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'sakhnik/nvim-gdb'
+" Plugin 'neomake/neomake'
+Plugin 'tpope/vim-dispatch'
+Plugin 'vimlab/split-term.vim'
+Plugin 'inkarkat/vim-ingo-library'
+Plugin 'inkarkat/vim-mark'
+Plugin 'kshenoy/vim-signature'
 " Plugin 'octol/vim-cpp-enhanced-highlight'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -110,13 +117,28 @@ let Tlist_Use_Right_Window   = 1
 set hidden
 set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_experimental_template_highlight = 1
 nnoremap <F10> :b
 nmap <left> :bp!<CR>
 nmap <right> :bn!<CR>
 nmap <up> :bf!<CR>
 nmap <down> :bl!<CR>
 nmap <F8> :TagbarToggle<CR>
+set mouse=a
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+    tnoremap <A-h> <C-\><C-N><C-w>h
+    tnoremap <A-j> <C-\><C-N><C-w>j
+    tnoremap <A-k> <C-\><C-N><C-w>k
+    tnoremap <A-l> <C-\><C-N><C-w>l
+    inoremap <A-h> <C-\><C-N><C-w>h
+    inoremap <A-j> <C-\><C-N><C-w>j
+    inoremap <A-k> <C-\><C-N><C-w>k
+    inoremap <A-l> <C-\><C-N><C-w>l
+endif
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+set splitright
+set splitbelow
