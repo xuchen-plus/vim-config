@@ -14,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
 Bundle 'jistr/vim-nerdtree-tabs'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_auto_start_csharp_server = 0
@@ -26,7 +25,26 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'tpope/vim-unimpaired'
 let g:buffergator_sort_regime = 'basename'
+let g:airline#extensions#tabline#ignore_bufadd_pat = '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|t.*:zsh'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnametruncate = 16
+let g:airline#extensions#tabline#fnamecollapse = 2
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+Plugin 'bling/vim-airline'
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 1
@@ -39,20 +57,21 @@ Plugin 'jiangmiao/auto-pairs'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/xoria256.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'sakhnik/nvim-gdb'
-" Plugin 'neomake/neomake'
-Plugin 'tpope/vim-dispatch'
-Plugin 'vimlab/split-term.vim'
 Plugin 'inkarkat/vim-ingo-library'
 Plugin 'inkarkat/vim-mark'
 Plugin 'kshenoy/vim-signature'
+if has('nvim')
+    Plugin 'sakhnik/nvim-gdb'
+    Plugin 'tpope/vim-dispatch'
+    Plugin 'vimlab/split-term.vim'
+endif
 " Plugin 'octol/vim-cpp-enhanced-highlight'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 set wildignore+=*/tmp/*,*/build/*,*thirdparty*,*package*,*.os,*.o,*.a,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](.git|.hg|.svn|build|package|thirdparty|third_party|3rd_party)$',
-  \ 'file': '\v\.(exe|so|dll|os|o|a)$',
+  \ 'file': '\v\.(exe|so|dll|os|o|a|pyc|swp|swo)$',
   \ 'link': 'alicpp',
   \ }
 filetype plugin indent on    " required
@@ -61,6 +80,7 @@ set hlsearch
 set expandtab
 set tabstop=4
 set cindent shiftwidth=4
+setlocal cino=j1,(0,ws,Ws
 set autoindent shiftwidth=4
 set cmdheight=1
 set scrolloff=5
@@ -126,7 +146,7 @@ nmap <F8> :TagbarToggle<CR>
 set mouse=a
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
-    tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+    " tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
     tnoremap <A-h> <C-\><C-N><C-w>h
     tnoremap <A-j> <C-\><C-N><C-w>j
     tnoremap <A-k> <C-\><C-N><C-w>k
