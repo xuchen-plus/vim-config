@@ -163,11 +163,11 @@ nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 set splitright
 set splitbelow
-let g:clang_format_path='/data1/xu.chen/soft/clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-14.04/bin/clang-format'
-map <C-K> :pyf /data1/xu.chen/soft/clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-14.04/share/clang/clang-format.py<cr>
-imap <C-K> <c-o>:pyf /data1/xu.chen/soft/clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-14.04/share/clang/clang-format.py<cr>
+let g:clang_format_path='CLANG_PREFIX/bin/clang-format'
+map <C-K> :pyf CLANG_PREFIX/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:pyf CLANG_PREFIX/share/clang/clang-format.py<cr>
 function! Formatonsave()
   let l:formatdiff = 1
-  pyf /data1/xu.chen/soft/clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-14.04/share/clang/clang-format.py
+  pyf CLANG_PREFIX/share/clang/clang-format.py
 endfunction
-autocmd BufWritePre *.h,*.hh,*.hpp,*.c++,*.c,*.cc,*.cpp call Formatonsave()
+" autocmd BufWritePre *.h,*.hh,*.hpp,*.c++,*.c,*.cc,*.cpp call Formatonsave()
